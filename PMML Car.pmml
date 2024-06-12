@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="WizResQ">
+    <Application name="KNIME" version="5.2.3"/>
+  </Header>
+  <DataDictionary numberOfFields="6">
+    <DataField dataType="string" name="Make" optype="categorical">
+      <Value value="Ford"/>
+      <Value value="Toyota"/>
+      <Value value="Chevrolet"/>
+      <Value value="Nissan"/>
+      <Value value="Honda"/>
+    </DataField>
+    <DataField dataType="string" name="Model" optype="categorical">
+      <Value value="Silverado"/>
+      <Value value="Civic"/>
+      <Value value="Altima"/>
+      <Value value="Camry"/>
+      <Value value="F-150"/>
+    </DataField>
+    <DataField dataType="string" name="Year" optype="categorical">
+      <Value value="2022"/>
+      <Value value="2014"/>
+      <Value value="2016"/>
+      <Value value="2019"/>
+      <Value value="2013"/>
+      <Value value="2015"/>
+      <Value value="2012"/>
+      <Value value="2021"/>
+      <Value value="2017"/>
+      <Value value="2020"/>
+      <Value value="2010"/>
+      <Value value="2018"/>
+      <Value value="2011"/>
+    </DataField>
+    <DataField dataType="integer" name="Mileage" optype="continuous">
+      <Interval closure="closedClosed" leftMargin="10079.0" rightMargin="149794.0"/>
+    </DataField>
+    <DataField dataType="string" name="Condition" optype="categorical">
+      <Value value="Excellent"/>
+      <Value value="Good"/>
+      <Value value="Fair"/>
+    </DataField>
+    <DataField dataType="double" name="Price" optype="continuous">
+      <Interval closure="closedClosed" leftMargin="12613.0" rightMargin="31414.899999999998"/>
+    </DataField>
+  </DataDictionary>
+  <GeneralRegressionModel modelType="generalLinear" functionName="regression" algorithmName="LinearRegression" modelName="KNIME Linear Regression">
+    <MiningSchema>
+      <MiningField name="Make" invalidValueTreatment="asIs"/>
+      <MiningField name="Model" invalidValueTreatment="asIs"/>
+      <MiningField name="Year" invalidValueTreatment="asIs"/>
+      <MiningField name="Mileage" invalidValueTreatment="asIs"/>
+      <MiningField name="Condition" invalidValueTreatment="asIs"/>
+      <MiningField name="Price" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <ParameterList>
+      <Parameter name="p0" label="Intercept"/>
+      <Parameter name="p1" label="[Make=Ford]"/>
+      <Parameter name="p2" label="[Make=Honda]"/>
+      <Parameter name="p3" label="[Make=Nissan]"/>
+      <Parameter name="p4" label="[Make=Toyota]"/>
+      <Parameter name="p5" label="[Model=Camry]"/>
+      <Parameter name="p6" label="[Model=Civic]"/>
+      <Parameter name="p7" label="[Model=F-150]"/>
+      <Parameter name="p8" label="[Model=Silverado]"/>
+      <Parameter name="p9" label="[Year=2011]"/>
+      <Parameter name="p10" label="[Year=2012]"/>
+      <Parameter name="p11" label="[Year=2013]"/>
+      <Parameter name="p12" label="[Year=2014]"/>
+      <Parameter name="p13" label="[Year=2015]"/>
+      <Parameter name="p14" label="[Year=2016]"/>
+      <Parameter name="p15" label="[Year=2017]"/>
+      <Parameter name="p16" label="[Year=2018]"/>
+      <Parameter name="p17" label="[Year=2019]"/>
+      <Parameter name="p18" label="[Year=2020]"/>
+      <Parameter name="p19" label="[Year=2021]"/>
+      <Parameter name="p20" label="[Year=2022]"/>
+      <Parameter name="p21" label="Mileage"/>
+      <Parameter name="p22" label="[Condition=Fair]"/>
+      <Parameter name="p23" label="[Condition=Good]"/>
+    </ParameterList>
+    <FactorList>
+      <Predictor name="Make"/>
+      <Predictor name="Model"/>
+      <Predictor name="Year"/>
+      <Predictor name="Condition"/>
+    </FactorList>
+    <CovariateList>
+      <Predictor name="Mileage"/>
+    </CovariateList>
+    <PPMatrix>
+      <PPCell value="Ford" predictorName="Make" parameterName="p1"/>
+      <PPCell value="Honda" predictorName="Make" parameterName="p2"/>
+      <PPCell value="Nissan" predictorName="Make" parameterName="p3"/>
+      <PPCell value="Toyota" predictorName="Make" parameterName="p4"/>
+      <PPCell value="Camry" predictorName="Model" parameterName="p5"/>
+      <PPCell value="Civic" predictorName="Model" parameterName="p6"/>
+      <PPCell value="F-150" predictorName="Model" parameterName="p7"/>
+      <PPCell value="Silverado" predictorName="Model" parameterName="p8"/>
+      <PPCell value="2011" predictorName="Year" parameterName="p9"/>
+      <PPCell value="2012" predictorName="Year" parameterName="p10"/>
+      <PPCell value="2013" predictorName="Year" parameterName="p11"/>
+      <PPCell value="2014" predictorName="Year" parameterName="p12"/>
+      <PPCell value="2015" predictorName="Year" parameterName="p13"/>
+      <PPCell value="2016" predictorName="Year" parameterName="p14"/>
+      <PPCell value="2017" predictorName="Year" parameterName="p15"/>
+      <PPCell value="2018" predictorName="Year" parameterName="p16"/>
+      <PPCell value="2019" predictorName="Year" parameterName="p17"/>
+      <PPCell value="2020" predictorName="Year" parameterName="p18"/>
+      <PPCell value="2021" predictorName="Year" parameterName="p19"/>
+      <PPCell value="2022" predictorName="Year" parameterName="p20"/>
+      <PPCell value="1" predictorName="Mileage" parameterName="p21"/>
+      <PPCell value="Fair" predictorName="Condition" parameterName="p22"/>
+      <PPCell value="Good" predictorName="Condition" parameterName="p23"/>
+    </PPMatrix>
+    <ParamMatrix>
+      <PCell parameterName="p0" beta="32000.064346289382" df="1"/>
+      <PCell parameterName="p1" beta="-0.0064562927449087456" df="1"/>
+      <PCell parameterName="p2" beta="1.7689326087027383E-4" df="1"/>
+      <PCell parameterName="p3" beta="-0.004629810688822227" df="1"/>
+      <PCell parameterName="p4" beta="0.0027477488719986113" df="1"/>
+      <PCell parameterName="p5" beta="-0.007135905216222456" df="1"/>
+      <PCell parameterName="p6" beta="-0.0048633195911342115" df="1"/>
+      <PCell parameterName="p7" beta="-0.005056888230715876" df="1"/>
+      <PCell parameterName="p8" beta="-0.001967204578099265" df="1"/>
+      <PCell parameterName="p9" beta="-1000.0064167204097" df="1"/>
+      <PCell parameterName="p10" beta="-1999.9915410930123" df="1"/>
+      <PCell parameterName="p11" beta="-3000.012973825659" df="1"/>
+      <PCell parameterName="p12" beta="-4000.0024097510914" df="1"/>
+      <PCell parameterName="p13" beta="-4999.999259109744" df="1"/>
+      <PCell parameterName="p14" beta="-6000.003674849515" df="1"/>
+      <PCell parameterName="p15" beta="-6999.989088150497" df="1"/>
+      <PCell parameterName="p16" beta="-7999.989227723681" df="1"/>
+      <PCell parameterName="p17" beta="-8999.994162351839" df="1"/>
+      <PCell parameterName="p18" beta="-10000.009637059067" df="1"/>
+      <PCell parameterName="p19" beta="-10999.995059916655" df="1"/>
+      <PCell parameterName="p20" beta="-11999.999935716483" df="1"/>
+      <PCell parameterName="p21" beta="-0.050000071083458816" df="1"/>
+      <PCell parameterName="p22" beta="0.006085590771282817" df="1"/>
+      <PCell parameterName="p23" beta="-0.009982002319262887" df="1"/>
+    </ParamMatrix>
+  </GeneralRegressionModel>
+</PMML>
